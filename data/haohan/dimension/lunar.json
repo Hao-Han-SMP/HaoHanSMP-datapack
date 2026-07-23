@@ -1,0 +1,11 @@
+{
+    "type": "haohan:lunar",
+    "generator": {
+        "type": "minecraft:noise",
+        "settings": "haohan:lunar",
+        "biome_source": {
+            "type": "minecraft:fixed",
+            "biome": "minecraft:plains"
+        }
+    }
+}

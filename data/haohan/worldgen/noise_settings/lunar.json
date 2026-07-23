@@ -45,12 +45,48 @@
         "argument1": {
           "type": "minecraft:mul",
           "argument1": {
-            "type": "minecraft:noise",
-            "noise": "minecraft:calcite",
-            "xz_scale": 1.5,
-            "y_scale": 0.1
+            "type": "minecraft:mul",
+            "argument1": {
+              "type": "minecraft:noise",
+              "noise": "minecraft:calcite",
+              "xz_scale": 0.4,
+              "y_scale": 0
+            },
+            "argument2": 0.05
           },
-          "argument2": 0.035
+          "argument2": {
+            "type": "minecraft:spline",
+            "spline": {
+              "coordinate": {
+                "type": "minecraft:noise",
+                "noise": "minecraft:pillar",
+                "xz_scale": 0.65,
+                "y_scale": 0
+              },
+              "points": [
+                {
+                  "location": -1,
+                  "value": 1,
+                  "derivative": 0
+                },
+                {
+                  "location": 0.2,
+                  "value": 1,
+                  "derivative": 0
+                },
+                {
+                  "location": 0.28,
+                  "value": 0,
+                  "derivative": 0
+                },
+                {
+                  "location": 1,
+                  "value": 0,
+                  "derivative": 0
+                }
+              ]
+            }
+          }
         },
         "argument2": {
           "type": "minecraft:spline",
@@ -58,7 +94,7 @@
             "coordinate": {
               "type": "minecraft:noise",
               "noise": "minecraft:pillar",
-              "xz_scale": 0.55,
+              "xz_scale": 0.65,
               "y_scale": 0
             },
             "points": [
@@ -68,43 +104,23 @@
                 "derivative": 0
               },
               {
-                "location": 0.05,
+                "location": 0.28,
                 "value": 0.2,
                 "derivative": 0
               },
               {
-                "location": 0.15,
-                "value": 0.32,
+                "location": 0.36,
+                "value": 0.27,
                 "derivative": 0
               },
               {
-                "location": 0.27,
-                "value": 0.08,
-                "derivative": 0
-              },
-              {
-                "location": 0.38,
-                "value": -0.16,
-                "derivative": 0
-              },
-              {
-                "location": 0.47,
+                "location": 0.62,
                 "value": -0.12,
                 "derivative": 0
               },
               {
-                "location": 0.58,
-                "value": 0.3,
-                "derivative": 0
-              },
-              {
-                "location": 0.68,
-                "value": 0.2,
-                "derivative": 0
-              },
-              {
                 "location": 1,
-                "value": 0.2,
+                "value": -0.12,
                 "derivative": 0
               }
             ]

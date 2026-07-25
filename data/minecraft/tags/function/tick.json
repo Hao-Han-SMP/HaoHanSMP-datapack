@@ -1,5 +1,7 @@
 {
   "values": [
-    "haohan:lunar_gravity"
+    "haohan:lunar/physic",
+    "haohan:lunar/particle_effect",
+    "haohan:lunar/title"
   ]
 }

@@ -1,11 +1,48 @@
 {
-    "type": "haohan:lunar",
-    "generator": {
-        "type": "minecraft:noise",
-        "settings": "haohan:lunar",
-        "biome_source": {
-            "type": "minecraft:fixed",
-            "biome": "haohan:lunar"
+  "type": "haohan:lunar",
+  "generator": {
+    "type": "minecraft:noise",
+    "settings": "haohan:lunar",
+    "biome_source": {
+      "type": "minecraft:multi_noise",
+      "biomes": [
+        {
+          "biome": "haohan:lunar_maria",
+          "parameters": {
+            "continentalness": [-1.0, -0.3],
+            "erosion": [-1.0, 0.3],
+            "temperature": [-1.0, -0.3],
+            "humidity": [0, 0],
+            "weirdness": [0, 0],
+            "depth": [0, 0],
+            "offset": 0
+          }
+        },
+        {
+          "biome": "haohan:lunar_terrae",
+          "parameters": {
+            "continentalness": [-1.0, 1.0],
+            "erosion": [-1.0, 0.4],
+            "temperature": [-1.0, 1.0],
+            "humidity": [0, 0],
+            "weirdness": [0, 0],
+            "depth": [0, 0],
+            "offset": 0.15
+          }
+        },
+        {
+          "biome": "haohan:lunar_craters",
+          "parameters": {
+            "continentalness": [-1.0, 1.0],
+            "erosion": [0.3, 1.0],
+            "temperature": [-1.0, 1.0],
+            "humidity": [0, 0],
+            "weirdness": [0, 0],
+            "depth": [0, 0],
+            "offset": 0.1
+          }
         }
+      ]
     }
+  }
 }

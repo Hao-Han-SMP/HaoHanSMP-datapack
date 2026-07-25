@@ -4,6 +4,8 @@
 DIR_NAME=$(basename "$PWD")
 OUTPUT_DIR="out"
 OUTPUT_NAME="${OUTPUT_DIR}/${DIR_NAME}.zip"
+RESOURCE_PACK_DIR="resourcepack"
+RESOURCE_OUTPUT_NAME="${OUTPUT_DIR}/${DIR_NAME}-resources.zip"
 
 # Tạo thư mục out nếu chưa có
 [ -d "$OUTPUT_DIR" ] || mkdir -p "$OUTPUT_DIR"
@@ -29,6 +31,16 @@ echo "Đang nén datapack..."
 # 1. Dùng lệnh 'zip' (Chế độ im lặng -q)
 if command -v zip >/dev/null 2>&1; then
     zip -rq "$OUTPUT_NAME" "${FILES_TO_ZIP[@]}"
+
+    if [ -d "$RESOURCE_PACK_DIR" ]; then
+        [ -f "$RESOURCE_OUTPUT_NAME" ] && rm "$RESOURCE_OUTPUT_NAME"
+        (
+            cd "$RESOURCE_PACK_DIR" || exit 1
+            zip -rq "../$RESOURCE_OUTPUT_NAME" .
+        )
+        echo "Nen resource pack thanh cong: $RESOURCE_OUTPUT_NAME"
+    fi
+
     echo "Nén thành công: $OUTPUT_NAME"
     exit 0
 else

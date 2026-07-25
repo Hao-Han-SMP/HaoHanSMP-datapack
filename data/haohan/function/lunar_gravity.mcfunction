@@ -9,4 +9,4 @@ execute as @a at @s if dimension haohan:lunar run particle minecraft:glow ~ ~1 ~
 execute as @e at @s unless dimension haohan:lunar run attribute @s minecraft:gravity base reset
 execute as @e at @s unless dimension haohan:lunar run attribute @s minecraft:safe_fall_distance base reset
 execute as @e at @s unless dimension haohan:lunar run attribute @s minecraft:block_break_speed base reset
-execute as @e at @s unless dimension haohan:lunar run attribute @s minecraft:attack_knockback base reeset
+execute as @e at @s unless dimension haohan:lunar run attribute @s minecraft:attack_knockback base reset

@@ -7,12 +7,31 @@ Density được ghép theo thứ tự:
 
 1. `lunar/final_density.json` — gradient theo trục Y và entrypoint tổng.
 2. `lunar/components.json` — nơi ghép các hệ worldgen độc lập.
-3. `lunar/terrain/` — nền địa hình tự nhiên.
+3. `lunar/terrain/` — nền địa hình tự nhiên, chia theo biome.
 4. `lunar/meteor_hole/` — toàn bộ hình dạng hố thiên thạch.
 5. `lunar/volcano/` — núi lửa cao, sườn rộng và có caldera.
+6. `lunar/biome/` — density function cho biome selection (multi_noise).
 
 `components.json` cộng phần đáy crater riêng, sau đó dùng `max` giữa vành crater
 và núi lửa. Cách ghép này ngăn hai phần nhô cao cộng chồng thành trụ đá.
+
+## Biome Selection
+
+Dùng `minecraft:multi_noise` biome source với 3 biome:
+
+- **lunar_maria** — Biển Mặt Trăng: vùng tối, bằng phẳng, dung nham bazan cổ.
+  Chọn khi `continents` thấp (-1.0 → -0.1).
+- **lunar_terrae** — Vùng đất cao: cao nguyên sáng, gồ ghề, đá anorthosit.
+  Chọn khi `continents` cao (0.15 → 1.0) và `erosion` thấp (-1.0 → 0.35).
+- **lunar_craters** — Hố va chạm: bồn địa va chạm lớn kiểu Nam Cực-Aitken.
+  Chọn khi `erosion` cao (0.45 → 1.0), bất kể continents.
+
+Noise cho biome selection nằm trong `data/haohan/worldgen/noise/lunar/biome/`:
+- `continents.json` — `firstOctave: -9`, tạo vùng rộng 700–1500 blocks.
+- `erosion.json` — `firstOctave: -10`, vùng crater cực rộng.
+
+Density function tương ứng nằm trong `lunar/biome/continents.json` và
+`lunar/biome/erosion.json`, được trỏ từ noise_router.
 
 ## Meteor holes
 
@@ -34,9 +53,32 @@ Noise tương ứng nằm trong `data/haohan/worldgen/noise/lunar/meteor_hole/`.
 
 ## Terrain
 
-`terrain/base_relief.json` dùng rolling noise bất đối xứng: phía thấp tạo các đồng
-bằng mare rộng, phía cao nâng thành lunar highlands. Mid/detail chỉ thêm gợn nhẹ,
-không tạo thêm một trường noise mới.
+Terrain chia theo biome, blend bằng spline trên continents noise:
+
+- `base_relief.json` — spline dùng `lunar/biome/continents` làm coordinate,
+  lerp giữa `mare_relief` (Maria) và `highlands_relief` (Terrae).
+- `mare_relief.json` — đồng bằng bazan phẳng, spline hẹp (-0.14 → 0.0),
+  chỉ có mid noise nhẹ, không có detail/highlands noise.
+- `highlands_relief.json` — cao nguyên gồ ghề, spline cao (0.12 → 0.48),
+  dùng rolling + mid + detail + highlands noise cho texture phong phú.
+
+Noise terrain nằm trong `data/haohan/worldgen/noise/lunar/terrain/`:
+- `rolling.json` — sóng rộng cho nền terrain (`firstOctave: -9`).
+- `mid.json` — sóng trung bình (`firstOctave: -6`).
+- `detail.json` — chi tiết nhỏ (`firstOctave: -3`).
+- `highlands.json` — gồ ghề riêng cho Terrae (`firstOctave: -5`).
+
+## Surface Rules
+
+Mỗi biome có vật liệu bề mặt riêng biệt dựa trên `biome` condition:
+
+- **Maria**: basalt (chính), smooth_basalt, deepslate — mô phỏng dung nham bazan.
+- **Terrae**: calcite (chính), tuff, andesite — mô phỏng đá anorthosit sáng.
+- **Craters**: tuff (chính), smooth_basalt, deepslate, andesite — hỗn hợp regolith
+  bị nghiền nát do va chạm.
+
+Surface mix dùng noise `haohan:lunar/surface_mix` để tạo texture đa dạng cho
+mỗi biome.
 
 ## Volcano
 

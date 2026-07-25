@@ -48,7 +48,8 @@ Density function tương ứng nằm trong `lunar/biome/continents.json` và
 - `major_depressions.json`: chọn đáy sâu nhất giữa large, mega, basin và complex.
 - `minor_depressions.json`: chọn đáy sâu nhất giữa micro và small.
 - `depressions.json`: ghép hai nhóm để hố nhỏ vẫn xuất hiện trong đại hố.
-- `reliefs.json`: chọn vành cao nhất khi nhiều hố giao nhau.
+- `reliefs.json`: chọn vành cao nhất khi nhiều hố giao nhau, sau đó chặn độ nâng ở
+  `0.30` để các đỉnh hẹp của mega/basin/complex không biến thành pillar cao bất thường.
 - `offset.json`: entrypoint của toàn bộ hệ hố thiên thạch.
 - `cache/`: cache từng profile 2D để không tính lại ở nhánh đáy và nhánh vành.
 

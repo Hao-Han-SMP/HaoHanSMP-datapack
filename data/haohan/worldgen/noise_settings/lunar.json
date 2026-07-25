@@ -29,7 +29,7 @@
     "continents": "haohan:lunar/biome/continents",
     "erosion": "haohan:lunar/biome/erosion",
     "depth": "minecraft:zero",
-    "ridges": "minecraft:zero",
+    "ridges": "haohan:lunar/biome/crystal_regions",
     "preliminary_surface_level": "minecraft:zero",
     "final_density": {
       "type": "minecraft:interpolated",
@@ -71,6 +71,56 @@
         "then_run": {
           "type": "minecraft:sequence",
           "sequence": [
+            {
+              "type": "minecraft:condition",
+              "if_true": {
+                "type": "minecraft:biome",
+                "biome_is": [
+                  "haohan:lunar_crystal_craters"
+                ]
+              },
+              "then_run": {
+                "type": "minecraft:sequence",
+                "sequence": [
+                  {
+                    "type": "minecraft:condition",
+                    "if_true": {
+                      "type": "minecraft:noise_threshold",
+                      "max_threshold": 0.08,
+                      "min_threshold": -0.08,
+                      "noise": "haohan:lunar/obsidian_cracks"
+                    },
+                    "then_run": {
+                      "type": "minecraft:block",
+                      "result_state": {
+                        "Name": "minecraft:amethyst_block"
+                      }
+                    }
+                  },
+                  {
+                    "type": "minecraft:condition",
+                    "if_true": {
+                      "type": "minecraft:noise_threshold",
+                      "max_threshold": 0.35,
+                      "min_threshold": -0.35,
+                      "noise": "haohan:lunar/surface_mix"
+                    },
+                    "then_run": {
+                      "type": "minecraft:block",
+                      "result_state": {
+                        "Name": "minecraft:calcite"
+                      }
+                    }
+                  },
+                  {
+                    "type": "minecraft:block",
+                    "result_state": {
+                      "Name": "minecraft:smooth_quartz"
+                    }
+                  }
+                ]
+              }
+            },
             {
               "type": "minecraft:condition",
               "if_true": {

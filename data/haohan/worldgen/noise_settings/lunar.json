@@ -25,7 +25,7 @@
     "vein_ridged": "minecraft:zero",
     "vein_gap": "minecraft:zero",
     "temperature": "haohan:lunar/biome/temperature",
-    "vegetation": "minecraft:zero",
+    "vegetation": "haohan:lunar/biome/bright_patches",
     "continents": "haohan:lunar/biome/continents",
     "erosion": "haohan:lunar/biome/erosion",
     "depth": "minecraft:zero",
@@ -63,380 +63,6 @@
         "type": "minecraft:condition",
         "if_true": {
           "type": "minecraft:stone_depth",
-          "add_surface_depth": false,
-          "offset": 0,
-          "secondary_depth_range": 0,
-          "surface_type": "floor"
-        },
-        "then_run": {
-          "type": "minecraft:sequence",
-          "sequence": [
-            {
-              "type": "minecraft:condition",
-              "if_true": {
-                "type": "minecraft:biome",
-                "biome_is": ["haohan:lunar_maria"]
-              },
-              "then_run": {
-                "type": "minecraft:sequence",
-                "sequence": [
-                  {
-                    "type": "minecraft:condition",
-                    "if_true": {
-                      "type": "minecraft:y_above",
-                      "anchor": {
-                        "absolute": 30
-                      },
-                      "surface_depth_multiplier": 0,
-                      "add_stone_depth": false
-                    },
-                    "then_run": {
-                      "type": "minecraft:sequence",
-                      "sequence": [
-                        {
-                          "type": "minecraft:condition",
-                          "if_true": {
-                            "type": "minecraft:noise_threshold",
-                            "max_threshold": -0.5,
-                            "min_threshold": -2.0,
-                            "noise": "haohan:lunar/surface_mix"
-                          },
-                          "then_run": {
-                            "type": "minecraft:block",
-                            "result_state": {
-                              "Name": "minecraft:smooth_basalt"
-                            }
-                          }
-                        },
-                        {
-                          "type": "minecraft:condition",
-                          "if_true": {
-                            "type": "minecraft:noise_threshold",
-                            "max_threshold": 2.0,
-                            "min_threshold": 0.55,
-                            "noise": "haohan:lunar/surface_mix"
-                          },
-                          "then_run": {
-                            "type": "minecraft:block",
-                            "result_state": {
-                              "Name": "minecraft:deepslate"
-                            }
-                          }
-                        },
-                        {
-                          "type": "minecraft:block",
-                          "result_state": {
-                            "Name": "minecraft:basalt"
-                          }
-                        }
-                      ]
-                    }
-                  },
-                  {
-                    "type": "minecraft:condition",
-                    "if_true": {
-                      "type": "minecraft:noise_threshold",
-                      "max_threshold": -0.2,
-                      "min_threshold": -2.0,
-                      "noise": "haohan:lunar/surface_mix"
-                    },
-                    "then_run": {
-                      "type": "minecraft:block",
-                      "result_state": {
-                        "Name": "minecraft:deepslate"
-                      }
-                    }
-                  },
-                  {
-                    "type": "minecraft:block",
-                    "result_state": {
-                      "Name": "minecraft:basalt"
-                    }
-                  }
-                ]
-              }
-            },
-            {
-              "type": "minecraft:condition",
-              "if_true": {
-                "type": "minecraft:biome",
-                "biome_is": ["haohan:lunar_terrae"]
-              },
-              "then_run": {
-                "type": "minecraft:sequence",
-                "sequence": [
-                  {
-                    "type": "minecraft:condition",
-                    "if_true": {
-                      "type": "minecraft:y_above",
-                      "anchor": {
-                        "absolute": 40
-                      },
-                      "surface_depth_multiplier": 0,
-                      "add_stone_depth": false
-                    },
-                    "then_run": {
-                      "type": "minecraft:sequence",
-                      "sequence": [
-                        {
-                          "type": "minecraft:condition",
-                          "if_true": {
-                            "type": "minecraft:noise_threshold",
-                            "max_threshold": -0.62,
-                            "min_threshold": -2.0,
-                            "noise": "haohan:lunar/surface_mix"
-                          },
-                          "then_run": {
-                            "type": "minecraft:block",
-                            "result_state": {
-                              "Name": "minecraft:calcite"
-                            }
-                          }
-                        },
-                        {
-                          "type": "minecraft:condition",
-                          "if_true": {
-                            "type": "minecraft:noise_threshold",
-                            "max_threshold": 2.0,
-                            "min_threshold": 0.42,
-                            "noise": "haohan:lunar/surface_mix"
-                          },
-                          "then_run": {
-                            "type": "minecraft:block",
-                            "result_state": {
-                              "Name": "minecraft:andesite"
-                            }
-                          }
-                        },
-                        {
-                          "type": "minecraft:block",
-                          "result_state": {
-                            "Name": "minecraft:tuff"
-                          }
-                        }
-                      ]
-                    }
-                  },
-                  {
-                    "type": "minecraft:condition",
-                    "if_true": {
-                      "type": "minecraft:y_above",
-                      "anchor": {
-                        "absolute": 30
-                      },
-                      "surface_depth_multiplier": 0,
-                      "add_stone_depth": false
-                    },
-                    "then_run": {
-                      "type": "minecraft:sequence",
-                      "sequence": [
-                        {
-                          "type": "minecraft:condition",
-                          "if_true": {
-                            "type": "minecraft:noise_threshold",
-                            "max_threshold": -0.12,
-                            "min_threshold": -2.0,
-                            "noise": "haohan:lunar/surface_mix"
-                          },
-                          "then_run": {
-                            "type": "minecraft:block",
-                            "result_state": {
-                              "Name": "minecraft:calcite"
-                            }
-                          }
-                        },
-                        {
-                          "type": "minecraft:condition",
-                          "if_true": {
-                            "type": "minecraft:noise_threshold",
-                            "max_threshold": 2.0,
-                            "min_threshold": 0.35,
-                            "noise": "haohan:lunar/surface_mix"
-                          },
-                          "then_run": {
-                            "type": "minecraft:block",
-                            "result_state": {
-                              "Name": "minecraft:andesite"
-                            }
-                          }
-                        },
-                        {
-                          "type": "minecraft:block",
-                          "result_state": {
-                            "Name": "minecraft:tuff"
-                          }
-                        }
-                      ]
-                    }
-                  },
-                  {
-                    "type": "minecraft:condition",
-                    "if_true": {
-                      "type": "minecraft:noise_threshold",
-                      "max_threshold": -0.12,
-                      "min_threshold": -2.0,
-                      "noise": "haohan:lunar/surface_mix"
-                    },
-                    "then_run": {
-                      "type": "minecraft:block",
-                      "result_state": {
-                        "Name": "minecraft:calcite"
-                      }
-                    }
-                  },
-                  {
-                    "type": "minecraft:block",
-                    "result_state": {
-                      "Name": "minecraft:tuff"
-                    }
-                  }
-                ]
-              }
-            },
-            {
-              "type": "minecraft:condition",
-              "if_true": {
-                "type": "minecraft:biome",
-                "biome_is": ["haohan:lunar_craters"]
-              },
-              "then_run": {
-                "type": "minecraft:sequence",
-                "sequence": [
-                  {
-                    "type": "minecraft:condition",
-                    "if_true": {
-                      "type": "minecraft:y_above",
-                      "anchor": {
-                        "absolute": 35
-                      },
-                      "surface_depth_multiplier": 0,
-                      "add_stone_depth": false
-                    },
-                    "then_run": {
-                      "type": "minecraft:sequence",
-                      "sequence": [
-                        {
-                          "type": "minecraft:condition",
-                          "if_true": {
-                            "type": "minecraft:noise_threshold",
-                            "max_threshold": -0.45,
-                            "min_threshold": -2.0,
-                            "noise": "haohan:lunar/surface_mix"
-                          },
-                          "then_run": {
-                            "type": "minecraft:block",
-                            "result_state": {
-                              "Name": "minecraft:smooth_basalt"
-                            }
-                          }
-                        },
-                        {
-                          "type": "minecraft:condition",
-                          "if_true": {
-                            "type": "minecraft:noise_threshold",
-                            "max_threshold": 2.0,
-                            "min_threshold": 0.48,
-                            "noise": "haohan:lunar/surface_mix"
-                          },
-                          "then_run": {
-                            "type": "minecraft:block",
-                            "result_state": {
-                              "Name": "minecraft:andesite"
-                            }
-                          }
-                        },
-                        {
-                          "type": "minecraft:block",
-                          "result_state": {
-                            "Name": "minecraft:tuff"
-                          }
-                        }
-                      ]
-                    }
-                  },
-                  {
-                    "type": "minecraft:condition",
-                    "if_true": {
-                      "type": "minecraft:y_above",
-                      "anchor": {
-                        "absolute": 18
-                      },
-                      "surface_depth_multiplier": 0,
-                      "add_stone_depth": false
-                    },
-                    "then_run": {
-                      "type": "minecraft:sequence",
-                      "sequence": [
-                        {
-                          "type": "minecraft:condition",
-                          "if_true": {
-                            "type": "minecraft:noise_threshold",
-                            "max_threshold": -0.12,
-                            "min_threshold": -2.0,
-                            "noise": "haohan:lunar/surface_mix"
-                          },
-                          "then_run": {
-                            "type": "minecraft:block",
-                            "result_state": {
-                              "Name": "minecraft:smooth_basalt"
-                            }
-                          }
-                        },
-                        {
-                          "type": "minecraft:condition",
-                          "if_true": {
-                            "type": "minecraft:noise_threshold",
-                            "max_threshold": 2.0,
-                            "min_threshold": 0.35,
-                            "noise": "haohan:lunar/surface_mix"
-                          },
-                          "then_run": {
-                            "type": "minecraft:block",
-                            "result_state": {
-                              "Name": "minecraft:deepslate"
-                            }
-                          }
-                        },
-                        {
-                          "type": "minecraft:block",
-                          "result_state": {
-                            "Name": "minecraft:tuff"
-                          }
-                        }
-                      ]
-                    }
-                  },
-                  {
-                    "type": "minecraft:condition",
-                    "if_true": {
-                      "type": "minecraft:noise_threshold",
-                      "max_threshold": 0.05,
-                      "min_threshold": -2.0,
-                      "noise": "haohan:lunar/surface_mix"
-                    },
-                    "then_run": {
-                      "type": "minecraft:block",
-                      "result_state": {
-                        "Name": "minecraft:deepslate"
-                      }
-                    }
-                  },
-                  {
-                    "type": "minecraft:block",
-                    "result_state": {
-                      "Name": "minecraft:tuff"
-                    }
-                  }
-                ]
-              }
-            }
-          ]
-        }
-      },
-      {
-        "type": "minecraft:condition",
-        "if_true": {
-          "type": "minecraft:stone_depth",
           "add_surface_depth": true,
           "offset": 0,
           "secondary_depth_range": 0,
@@ -449,39 +75,433 @@
               "type": "minecraft:condition",
               "if_true": {
                 "type": "minecraft:biome",
-                "biome_is": ["haohan:lunar_maria"]
+                "biome_is": [
+                  "haohan:lunar_bright_patches"
+                ]
+              },
+              "then_run": {
+                "type": "minecraft:sequence",
+                "sequence": [
+                  {
+                    "type": "minecraft:condition",
+                    "if_true": {
+                      "type": "minecraft:noise_threshold",
+                      "max_threshold": -0.2,
+                      "min_threshold": -2.0,
+                      "noise": "haohan:lunar/surface_mix"
+                    },
+                    "then_run": {
+                      "type": "minecraft:block",
+                      "result_state": {
+                        "Name": "minecraft:diorite"
+                      }
+                    }
+                  },
+                  {
+                    "type": "minecraft:block",
+                    "result_state": {
+                      "Name": "minecraft:white_concrete_powder"
+                    }
+                  }
+                ]
+              }
+            },
+            {
+              "type": "minecraft:condition",
+              "if_true": {
+                "type": "minecraft:y_above",
+                "anchor": {
+                  "absolute": 76
+                },
+                "surface_depth_multiplier": 1,
+                "add_stone_depth": true
               },
               "then_run": {
                 "type": "minecraft:block",
                 "result_state": {
-                  "Name": "minecraft:basalt"
+                  "Name": "minecraft:light_gray_concrete_powder"
                 }
               }
             },
             {
               "type": "minecraft:condition",
               "if_true": {
-                "type": "minecraft:biome",
-                "biome_is": ["haohan:lunar_terrae"]
+                "type": "minecraft:y_above",
+                "anchor": {
+                  "absolute": 70
+                },
+                "surface_depth_multiplier": 1,
+                "add_stone_depth": true
+              },
+              "then_run": {
+                "type": "minecraft:sequence",
+                "sequence": [
+                  {
+                    "type": "minecraft:condition",
+                    "if_true": {
+                      "type": "minecraft:noise_threshold",
+                      "max_threshold": 2.0,
+                      "min_threshold": -0.12,
+                      "noise": "haohan:lunar/fractal_mix"
+                    },
+                    "then_run": {
+                      "type": "minecraft:block",
+                      "result_state": {
+                        "Name": "minecraft:light_gray_concrete_powder"
+                      }
+                    }
+                  },
+                  {
+                    "type": "minecraft:condition",
+                    "if_true": {
+                      "type": "minecraft:noise_threshold",
+                      "max_threshold": 2.0,
+                      "min_threshold": 0.28,
+                      "noise": "haohan:lunar/gradient_detail"
+                    },
+                    "then_run": {
+                      "type": "minecraft:block",
+                      "result_state": {
+                        "Name": "minecraft:light_gray_concrete_powder"
+                      }
+                    }
+                  },
+                  {
+                    "type": "minecraft:block",
+                    "result_state": {
+                      "Name": "minecraft:andesite"
+                    }
+                  }
+                ]
+              }
+            },
+            {
+              "type": "minecraft:condition",
+              "if_true": {
+                "type": "minecraft:y_above",
+                "anchor": {
+                  "absolute": 64
+                },
+                "surface_depth_multiplier": 1,
+                "add_stone_depth": true
               },
               "then_run": {
                 "type": "minecraft:block",
                 "result_state": {
-                  "Name": "minecraft:tuff"
+                  "Name": "minecraft:andesite"
                 }
               }
             },
             {
               "type": "minecraft:condition",
               "if_true": {
-                "type": "minecraft:biome",
-                "biome_is": ["haohan:lunar_craters"]
+                "type": "minecraft:y_above",
+                "anchor": {
+                  "absolute": 58
+                },
+                "surface_depth_multiplier": 1,
+                "add_stone_depth": true
+              },
+              "then_run": {
+                "type": "minecraft:sequence",
+                "sequence": [
+                  {
+                    "type": "minecraft:condition",
+                    "if_true": {
+                      "type": "minecraft:noise_threshold",
+                      "max_threshold": 2.0,
+                      "min_threshold": -0.12,
+                      "noise": "haohan:lunar/fractal_mix"
+                    },
+                    "then_run": {
+                      "type": "minecraft:block",
+                      "result_state": {
+                        "Name": "minecraft:andesite"
+                      }
+                    }
+                  },
+                  {
+                    "type": "minecraft:condition",
+                    "if_true": {
+                      "type": "minecraft:noise_threshold",
+                      "max_threshold": 2.0,
+                      "min_threshold": 0.28,
+                      "noise": "haohan:lunar/gradient_detail"
+                    },
+                    "then_run": {
+                      "type": "minecraft:block",
+                      "result_state": {
+                        "Name": "minecraft:andesite"
+                      }
+                    }
+                  },
+                  {
+                    "type": "minecraft:block",
+                    "result_state": {
+                      "Name": "minecraft:gravel"
+                    }
+                  }
+                ]
+              }
+            },
+            {
+              "type": "minecraft:condition",
+              "if_true": {
+                "type": "minecraft:y_above",
+                "anchor": {
+                  "absolute": 54
+                },
+                "surface_depth_multiplier": 1,
+                "add_stone_depth": true
               },
               "then_run": {
                 "type": "minecraft:block",
                 "result_state": {
-                  "Name": "minecraft:tuff"
+                  "Name": "minecraft:gravel"
                 }
+              }
+            },
+            {
+              "type": "minecraft:condition",
+              "if_true": {
+                "type": "minecraft:y_above",
+                "anchor": {
+                  "absolute": 48
+                },
+                "surface_depth_multiplier": 1,
+                "add_stone_depth": true
+              },
+              "then_run": {
+                "type": "minecraft:sequence",
+                "sequence": [
+                  {
+                    "type": "minecraft:condition",
+                    "if_true": {
+                      "type": "minecraft:noise_threshold",
+                      "max_threshold": 2.0,
+                      "min_threshold": -0.12,
+                      "noise": "haohan:lunar/fractal_mix"
+                    },
+                    "then_run": {
+                      "type": "minecraft:block",
+                      "result_state": {
+                        "Name": "minecraft:gravel"
+                      }
+                    }
+                  },
+                  {
+                    "type": "minecraft:condition",
+                    "if_true": {
+                      "type": "minecraft:noise_threshold",
+                      "max_threshold": 2.0,
+                      "min_threshold": 0.28,
+                      "noise": "haohan:lunar/gradient_detail"
+                    },
+                    "then_run": {
+                      "type": "minecraft:block",
+                      "result_state": {
+                        "Name": "minecraft:gravel"
+                      }
+                    }
+                  },
+                  {
+                    "type": "minecraft:block",
+                    "result_state": {
+                      "Name": "minecraft:deepslate"
+                    }
+                  }
+                ]
+              }
+            },
+            {
+              "type": "minecraft:condition",
+              "if_true": {
+                "type": "minecraft:y_above",
+                "anchor": {
+                  "absolute": 44
+                },
+                "surface_depth_multiplier": 1,
+                "add_stone_depth": true
+              },
+              "then_run": {
+                "type": "minecraft:block",
+                "result_state": {
+                  "Name": "minecraft:deepslate"
+                }
+              }
+            },
+            {
+              "type": "minecraft:condition",
+              "if_true": {
+                "type": "minecraft:y_above",
+                "anchor": {
+                  "absolute": 38
+                },
+                "surface_depth_multiplier": 1,
+                "add_stone_depth": true
+              },
+              "then_run": {
+                "type": "minecraft:sequence",
+                "sequence": [
+                  {
+                    "type": "minecraft:condition",
+                    "if_true": {
+                      "type": "minecraft:noise_threshold",
+                      "max_threshold": 2.0,
+                      "min_threshold": -0.12,
+                      "noise": "haohan:lunar/fractal_mix"
+                    },
+                    "then_run": {
+                      "type": "minecraft:block",
+                      "result_state": {
+                        "Name": "minecraft:deepslate"
+                      }
+                    }
+                  },
+                  {
+                    "type": "minecraft:condition",
+                    "if_true": {
+                      "type": "minecraft:noise_threshold",
+                      "max_threshold": 2.0,
+                      "min_threshold": 0.28,
+                      "noise": "haohan:lunar/gradient_detail"
+                    },
+                    "then_run": {
+                      "type": "minecraft:block",
+                      "result_state": {
+                        "Name": "minecraft:deepslate"
+                      }
+                    }
+                  },
+                  {
+                    "type": "minecraft:block",
+                    "result_state": {
+                      "Name": "minecraft:blackstone"
+                    }
+                  }
+                ]
+              }
+            },
+            {
+              "type": "minecraft:condition",
+              "if_true": {
+                "type": "minecraft:y_above",
+                "anchor": {
+                  "absolute": 30
+                },
+                "surface_depth_multiplier": 1,
+                "add_stone_depth": true
+              },
+              "then_run": {
+                "type": "minecraft:block",
+                "result_state": {
+                  "Name": "minecraft:blackstone"
+                }
+              }
+            },
+            {
+              "type": "minecraft:condition",
+              "if_true": {
+                "type": "minecraft:y_above",
+                "anchor": {
+                  "absolute": 24
+                },
+                "surface_depth_multiplier": 1,
+                "add_stone_depth": true
+              },
+              "then_run": {
+                "type": "minecraft:sequence",
+                "sequence": [
+                  {
+                    "type": "minecraft:condition",
+                    "if_true": {
+                      "type": "minecraft:noise_threshold",
+                      "max_threshold": 2.0,
+                      "min_threshold": -0.12,
+                      "noise": "haohan:lunar/fractal_mix"
+                    },
+                    "then_run": {
+                      "type": "minecraft:block",
+                      "result_state": {
+                        "Name": "minecraft:blackstone"
+                      }
+                    }
+                  },
+                  {
+                    "type": "minecraft:condition",
+                    "if_true": {
+                      "type": "minecraft:noise_threshold",
+                      "max_threshold": 2.0,
+                      "min_threshold": 0.28,
+                      "noise": "haohan:lunar/gradient_detail"
+                    },
+                    "then_run": {
+                      "type": "minecraft:block",
+                      "result_state": {
+                        "Name": "minecraft:blackstone"
+                      }
+                    }
+                  },
+                  {
+                    "type": "minecraft:block",
+                    "result_state": {
+                      "Name": "minecraft:black_concrete_powder"
+                    }
+                  }
+                ]
+              }
+            },
+            {
+              "type": "minecraft:condition",
+              "if_true": {
+                "type": "minecraft:y_above",
+                "anchor": {
+                  "absolute": 18
+                },
+                "surface_depth_multiplier": 1,
+                "add_stone_depth": true
+              },
+              "then_run": {
+                "type": "minecraft:block",
+                "result_state": {
+                  "Name": "minecraft:black_concrete_powder"
+                }
+              }
+            },
+            {
+              "type": "minecraft:condition",
+              "if_true": {
+                "type": "minecraft:noise_threshold",
+                "max_threshold": 0.025,
+                "min_threshold": -0.025,
+                "noise": "haohan:lunar/obsidian_cracks"
+              },
+              "then_run": {
+                "type": "minecraft:block",
+                "result_state": {
+                  "Name": "minecraft:obsidian"
+                }
+              }
+            },
+            {
+              "type": "minecraft:condition",
+              "if_true": {
+                "type": "minecraft:noise_threshold",
+                "max_threshold": 0.07,
+                "min_threshold": -0.07,
+                "noise": "haohan:lunar/obsidian_cracks"
+              },
+              "then_run": {
+                "type": "minecraft:block",
+                "result_state": {
+                  "Name": "minecraft:blackstone"
+                }
+              }
+            },
+            {
+              "type": "minecraft:block",
+              "result_state": {
+                "Name": "minecraft:black_concrete_powder"
               }
             }
           ]

@@ -17,7 +17,7 @@ và núi lửa. Cách ghép này ngăn hai phần nhô cao cộng chồng thành
 
 ## Biome Selection
 
-Dùng `minecraft:multi_noise` biome source với 3 biome:
+Dùng `minecraft:multi_noise` biome source với 4 biome:
 
 - **lunar_maria** — Biển Mặt Trăng: vùng tối, bằng phẳng, dung nham bazan cổ.
   Chọn khi `continents` thấp (-1.0 → -0.1).
@@ -25,6 +25,9 @@ Dùng `minecraft:multi_noise` biome source với 3 biome:
   Chọn khi `continents` cao (0.15 → 1.0) và `erosion` thấp (-1.0 → 0.35).
 - **lunar_craters** — Hố va chạm: bồn địa va chạm lớn kiểu Nam Cực-Aitken.
   Chọn khi `erosion` cao (0.45 → 1.0), bất kể continents.
+- **lunar_bright_patches** — Các mảng sáng nhỏ, loang lổ trong vùng đất cao.
+  Biome này được chọn bằng noise `bright_patches` tần số cao và chỉ dùng diorite
+  với bột bê tông trắng.
 
 Noise cho biome selection nằm trong `data/haohan/worldgen/noise/lunar/biome/`:
 - `continents.json` — `firstOctave: -9`, tạo vùng rộng 700–1500 blocks.
@@ -35,8 +38,8 @@ Density function tương ứng nằm trong `lunar/biome/continents.json` và
 
 ## Meteor holes
 
-- `micro.json`: các hố nhỏ, nông và xuất hiện dày nhất.
-- `small.json`: hố nhỏ.
+- `micro.json`: các hố nhỏ, nông và xuất hiện dày nhất; đáy được nhấn tối nhẹ.
+- `small.json`: hố nhỏ, sâu hơn micro và được nhấn tối nhẹ.
 - `large.json`: hố lớn.
 - `mega.json`: hố siêu lớn, dùng noise `firstOctave: -9`.
 - `basin.json`: impact basin siêu siêu lớn như ảnh tham khảo, giữ profile cũ và
@@ -70,15 +73,20 @@ Noise terrain nằm trong `data/haohan/worldgen/noise/lunar/terrain/`:
 
 ## Surface Rules
 
-Mỗi biome có vật liệu bề mặt riêng biệt dựa trên `biome` condition:
-
-- **Maria**: basalt (chính), smooth_basalt, deepslate — mô phỏng dung nham bazan.
-- **Terrae**: calcite (chính), tuff, andesite — mô phỏng đá anorthosit sáng.
-- **Craters**: tuff (chính), smooth_basalt, deepslate, andesite — hỗn hợp regolith
-  bị nghiền nát do va chạm.
-
-Surface mix dùng noise `haohan:lunar/surface_mix` để tạo texture đa dạng cho
-mỗi biome.
+Gradient bề mặt chung đi từ đáy trũng tối ra vùng cao sáng theo các mốc Y. Phần lõi
+của mỗi dải chỉ có một vật liệu; noise `haohan:lunar/fractal_mix` và surface depth
+chỉ làm gãy dải chuyển tiếp rộng 6 block ở mép ngoài. Các octave nhỏ của
+`fractal_mix` có biên độ thấp để viền tạo thành mảng cong liền mạch, tránh đổi
+block kiểu ô caro nhưng vẫn không thành một đường contour sắc cạnh. Cùng lựa chọn
+màu được giữ xuyên qua surface depth ngẫu nhiên khoảng 2–4 block, nên các mảng
+không còn xuất hiện dưới dạng một block đơn. Noise `gradient_detail` độc lập bổ
+sung các nhánh 4–16 block vào cả năm dải chuyển màu để blend bớt đều và bớt chạy
+ngang theo layer. Các gradient tối deepslate,
+blackstone và black concrete powder vẫn giữ dạng vòng bình thường. Chỉ dưới tầng sâu nhất
+(khoảng Y 18), noise tần số cao `haohan:lunar/obsidian_cracks` mới tạo các khe
+obsidian nhỏ có viền blackstone trong nền black concrete powder. `surface_mix` chỉ còn
+dùng để tạo texture diorite/bột bê tông trắng bên trong biome
+`lunar_bright_patches`.
 
 ## Volcano
 

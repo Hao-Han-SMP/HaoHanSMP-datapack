@@ -1,0 +1,42 @@
+{
+  "attributes": {
+    "minecraft:visual/sky_color": "#000000"
+  },
+  "carvers": [],
+  "downfall": 0.0,
+  "effects": {
+    "particle": {
+      "options": {
+        "type": "minecraft:firefly"
+      },
+      "probability": 0.04
+    },
+    "water_color": "#1a1d24"
+  },
+  "features": [
+    [],
+    [],
+    [],
+    [],
+    [],
+    [],
+    [],
+    [],
+    [],
+    [],
+    []
+  ],
+  "has_precipitation": false,
+  "spawn_costs": {},
+  "spawners": {
+    "ambient": [],
+    "axolotls": [],
+    "creature": [],
+    "misc": [],
+    "monster": [],
+    "underground_water_creature": [],
+    "water_ambient": [],
+    "water_creature": []
+  },
+  "temperature": 0.1
+}

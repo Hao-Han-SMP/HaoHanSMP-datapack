@@ -28,7 +28,7 @@
     "vegetation": "haohan:lunar/biome/bright_patches",
     "continents": "haohan:lunar/biome/continents",
     "erosion": "haohan:lunar/biome/erosion",
-    "depth": "minecraft:zero",
+    "depth": "haohan:lunar/biome/crystal_spires",
     "ridges": "haohan:lunar/biome/crystal_regions",
     "preliminary_surface_level": "minecraft:zero",
     "final_density": {
@@ -76,7 +76,9 @@
               "if_true": {
                 "type": "minecraft:biome",
                 "biome_is": [
-                  "haohan:lunar_crystal_craters"
+                  "haohan:lunar_crystal_craters",
+                  "haohan:lunar_giant_crystals",
+                  "haohan:lunar_giant_crystal_outskirts"
                 ]
               },
               "then_run": {

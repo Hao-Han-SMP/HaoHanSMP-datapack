@@ -1,13 +1,13 @@
 {
   "placement": {
     "type": "minecraft:random_spread",
-    "salt": 184736521,
-    "separation": 5,
-    "spacing": 12
+    "salt": 93476125,
+    "separation": 1,
+    "spacing": 3
   },
   "structures": [
     {
-      "structure": "haohan:crystal_crater",
+      "structure": "haohan:giant_crystal_field",
       "weight": 1
     }
   ]

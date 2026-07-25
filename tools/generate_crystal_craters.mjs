@@ -4,9 +4,13 @@ import { dirname, resolve } from "node:path";
 import { fileURLToPath } from "node:url";
 
 const SIZE = [48, 48, 48];
+const SURFACE_SIZE = [40, 52, 40];
+const OUTSKIRT_SIZE = [24, 32, 24];
 const DATA_VERSION = 4671;
 const ROOT = resolve(dirname(fileURLToPath(import.meta.url)), "..");
 const OUTPUT = resolve(ROOT, "data/haohan/structure/crystal_crater");
+const SURFACE_OUTPUT = resolve(ROOT, "data/haohan/structure/giant_crystal_field");
+const OUTSKIRT_OUTPUT = resolve(ROOT, "data/haohan/structure/giant_crystal_outskirts");
 
 const palettes = [
   "minecraft:air",
@@ -495,8 +499,138 @@ function generate(seed) {
   return [...blocks.values()];
 }
 
-function structureNbt(blocks) {
-  const sizeList = SIZE.map(i32);
+function surfaceSpireVariants(seed) {
+  const variants = [
+    [
+      [[20, 0, 20], [27, 47, 14], 4.45, 5, "minecraft:light_blue_stained_glass"],
+      [[12, 0, 25], [6, 33, 33], 2.9, 4, "minecraft:cyan_stained_glass"],
+      [[29, 0, 25], [36, 29, 32], 2.65, 6, "minecraft:purple_stained_glass"],
+      [[27, 0, 11], [34, 23, 6], 2.15, 5, "minecraft:white_stained_glass"],
+      [[11, 0, 12], [5, 20, 7], 1.9, 4, "minecraft:cyan_stained_glass"],
+      [[18, 0, 31], [15, 16, 37], 1.65, 5, "minecraft:purple_stained_glass"]
+    ],
+    [
+      [[20, 0, 20], [13, 48, 27], 4.6, 6, "minecraft:white_stained_glass"],
+      [[29, 0, 15], [36, 34, 9], 3.0, 5, "minecraft:light_blue_stained_glass"],
+      [[11, 0, 14], [5, 28, 7], 2.6, 4, "minecraft:pink_stained_glass"],
+      [[25, 0, 30], [31, 24, 36], 2.2, 5, "minecraft:cyan_stained_glass"],
+      [[12, 0, 29], [7, 20, 35], 1.9, 6, "minecraft:white_stained_glass"],
+      [[30, 0, 25], [36, 16, 28], 1.7, 4, "minecraft:light_blue_stained_glass"]
+    ],
+    [
+      [[20, 0, 20], [28, 46, 28], 4.5, 5, "minecraft:purple_stained_glass"],
+      [[12, 0, 25], [5, 35, 18], 3.05, 6, "minecraft:magenta_stained_glass"],
+      [[28, 0, 12], [36, 29, 6], 2.65, 4, "minecraft:pink_stained_glass"],
+      [[11, 0, 12], [5, 24, 6], 2.2, 5, "minecraft:tinted_glass"],
+      [[27, 0, 30], [34, 20, 36], 1.9, 6, "minecraft:purple_stained_glass"],
+      [[17, 0, 31], [14, 16, 37], 1.7, 4, "minecraft:magenta_stained_glass"]
+    ]
+  ];
+  return variants[seed];
+}
+
+function outskirtSpireVariants(seed) {
+  const variants = [
+    [
+      [[12, 0, 12], [16, 27, 8], 2.75, 5, "minecraft:light_blue_stained_glass"],
+      [[6, 0, 15], [3, 17, 20], 1.65, 4, "minecraft:cyan_stained_glass"],
+      [[17, 0, 17], [21, 13, 21], 1.3, 6, "minecraft:purple_stained_glass"]
+    ],
+    [
+      [[12, 0, 12], [8, 26, 17], 2.8, 6, "minecraft:white_stained_glass"],
+      [[18, 0, 8], [21, 18, 4], 1.7, 5, "minecraft:light_blue_stained_glass"],
+      [[7, 0, 17], [4, 12, 21], 1.3, 4, "minecraft:pink_stained_glass"]
+    ],
+    [
+      [[12, 0, 12], [17, 28, 17], 2.8, 5, "minecraft:purple_stained_glass"],
+      [[7, 0, 16], [3, 18, 12], 1.75, 6, "minecraft:magenta_stained_glass"],
+      [[17, 0, 7], [21, 13, 4], 1.35, 4, "minecraft:pink_stained_glass"]
+    ]
+  ];
+  return variants[seed];
+}
+
+function generateSurfaceSpire(seed, size, spires, saltOffset = 0) {
+  const blocks = new Map();
+  const [width, height, depth] = size;
+  const set = (x, y, z, name) => {
+    if (x >= 0 && x < width && y >= 0 && y < height && z >= 0 && z < depth) {
+      blocks.set(key(x, y, z), { pos: [x, y, z], state: blockIndex.get(name) });
+    }
+  };
+
+  spires.forEach(([a, b, baseRadius, facets, shellBlock], crystalId) => {
+    const frame = crystalFrame(a, b, (crystalId * 1.731 + seed * 0.91) % (Math.PI * 2));
+    const padding = Math.ceil(baseRadius + 1);
+    const minX = Math.max(0, Math.floor(Math.min(a[0], b[0]) - padding));
+    const maxX = Math.min(width - 1, Math.ceil(Math.max(a[0], b[0]) + padding));
+    const minY = 0;
+    const maxY = Math.min(height - 1, Math.ceil(Math.max(a[1], b[1]) + padding));
+    const minZ = Math.max(0, Math.floor(Math.min(a[2], b[2]) - padding));
+    const maxZ = Math.min(depth - 1, Math.ceil(Math.max(a[2], b[2]) + padding));
+
+    for (let x = minX; x <= maxX; x++) {
+      for (let y = minY; y <= maxY; y++) {
+        for (let z = minZ; z <= maxZ; z++) {
+          const coordinates = crystalCoordinates(x + 0.5, y + 0.5, z + 0.5, a, frame);
+          const t = coordinates.along / frame.length;
+          if (t < -0.06 || t > 1.035) continue;
+          const shoulder = 0.7;
+          const profile = t <= shoulder
+            ? 1.0 - 0.1 * Math.max(0, t) / shoulder
+            : Math.max(0.02, 0.9 * (1.0 - t) / (1.0 - shoulder));
+          const radius = Math.max(0.12, baseRadius * profile);
+          const distance = polygonDistance(coordinates.side, coordinates.up, facets);
+          if (distance > radius + 0.2) continue;
+
+          if (distance > Math.max(0, radius - 0.62)) {
+            const shell = hash3(x, y, z, 211 + saltOffset + seed * 37 + crystalId) % 7 === 0
+              ? "minecraft:tinted_glass"
+              : shellBlock;
+            set(x, y, z, shell);
+          } else {
+            const band = Math.floor(t * 13 + seed + crystalId) % 8;
+            const lightBlock = seed === 0
+              ? "minecraft:verdant_froglight"
+              : seed === 1
+                ? "minecraft:sea_lantern"
+                : "minecraft:pearlescent_froglight";
+            const core = band === 1
+              ? "minecraft:amethyst_block"
+              : band === 3 && baseRadius > 2.0
+                ? lightBlock
+                : band === 6
+                  ? "minecraft:budding_amethyst"
+                  : "minecraft:quartz_block";
+            set(x, y, z, core);
+          }
+        }
+      }
+    }
+
+    const rootRadius = Math.ceil(baseRadius + 1.2);
+    for (let x = Math.floor(a[0] - rootRadius); x <= Math.ceil(a[0] + rootRadius); x++) {
+      for (let y = 0; y <= Math.min(3, Math.ceil(baseRadius)); y++) {
+        for (let z = Math.floor(a[2] - rootRadius); z <= Math.ceil(a[2] + rootRadius); z++) {
+          const horizontal = Math.hypot(x + 0.5 - a[0], z + 0.5 - a[2]);
+          const limit = rootRadius * (1.0 - y / 5.5);
+          if (horizontal <= limit
+            && hash3(x, y, z, saltOffset + seed + crystalId * 19) % 7 !== 0) {
+            const rootBlock = hash3(x, y, z, saltOffset + seed + 503) % 5 === 0
+              ? "minecraft:amethyst_block"
+              : "minecraft:calcite";
+            set(x, y, z, rootBlock);
+          }
+        }
+      }
+    }
+  });
+
+  return [...blocks.values()];
+}
+
+function structureNbt(blocks, size = SIZE) {
+  const sizeList = size.map(i32);
   const paletteList = palettes.map((entry) => {
     if (typeof entry === "string") {
       return compoundPayload([stringTag("Name", entry)]);
@@ -530,4 +664,28 @@ for (let seed = 0; seed < 3; seed++) {
   const spikeCount = variantSpikes(seed).length + proceduralSpikes(seed).length;
   writeFileSync(resolve(OUTPUT, name), gzipSync(structureNbt(blocks), { level: 9 }));
   console.log(`${name}: ${blocks.length} blocks, ${spikeCount} crystal spikes`);
+}
+
+mkdirSync(SURFACE_OUTPUT, { recursive: true });
+for (let seed = 0; seed < 3; seed++) {
+  const name = `spire_${String.fromCharCode(97 + seed)}.nbt`;
+  const spires = surfaceSpireVariants(seed);
+  const blocks = generateSurfaceSpire(seed, SURFACE_SIZE, spires);
+  writeFileSync(
+    resolve(SURFACE_OUTPUT, name),
+    gzipSync(structureNbt(blocks, SURFACE_SIZE), { level: 9 })
+  );
+  console.log(`${name}: ${blocks.length} blocks, ${spires.length} giant crystals`);
+}
+
+mkdirSync(OUTSKIRT_OUTPUT, { recursive: true });
+for (let seed = 0; seed < 3; seed++) {
+  const name = `outskirt_${String.fromCharCode(97 + seed)}.nbt`;
+  const spires = outskirtSpireVariants(seed);
+  const blocks = generateSurfaceSpire(seed, OUTSKIRT_SIZE, spires, 1009);
+  writeFileSync(
+    resolve(OUTSKIRT_OUTPUT, name),
+    gzipSync(structureNbt(blocks, OUTSKIRT_SIZE), { level: 9 })
+  );
+  console.log(`${name}: ${blocks.length} blocks, ${spires.length} outskirt crystals`);
 }

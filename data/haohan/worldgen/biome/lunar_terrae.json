@@ -5,12 +5,6 @@
   "carvers": [],
   "downfall": 0.0,
   "effects": {
-    "particle": {
-      "options": {
-        "type": "minecraft:firefly"
-      },
-      "probability": 0.14
-    },
     "water_color": "#5a6070"
   },
   "features": [

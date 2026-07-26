@@ -48,7 +48,7 @@
       "text": "Ước mơ của em là lên ngắm mặt trăng đó",
       "color": "yellow"
     },
-    "background": "minecraft:textures/gui/advancements/backgrounds/stone.png",
+    "background": "minecraft:block/tuff",
     "frame": "task",
     "show_toast": true,
     "announce_to_chat": true,

@@ -6,7 +6,7 @@
   "size": 1,
   "spawn_overrides": {},
   "start_height": {
-    "absolute": -2
+    "absolute": -5
   },
   "start_pool": "haohan:giant_crystal_field/start",
   "step": "surface_structures",

@@ -88,6 +88,36 @@
                     "type": "minecraft:condition",
                     "if_true": {
                       "type": "minecraft:noise_threshold",
+                      "max_threshold": 0.018,
+                      "min_threshold": -0.018,
+                      "noise": "haohan:lunar/obsidian_cracks"
+                    },
+                    "then_run": {
+                      "type": "minecraft:block",
+                      "result_state": {
+                        "Name": "minecraft:cobbled_deepslate"
+                      }
+                    }
+                  },
+                  {
+                    "type": "minecraft:condition",
+                    "if_true": {
+                      "type": "minecraft:noise_threshold",
+                      "max_threshold": 0.035,
+                      "min_threshold": -0.035,
+                      "noise": "haohan:lunar/obsidian_cracks"
+                    },
+                    "then_run": {
+                      "type": "minecraft:block",
+                      "result_state": {
+                        "Name": "minecraft:tuff"
+                      }
+                    }
+                  },
+                  {
+                    "type": "minecraft:condition",
+                    "if_true": {
+                      "type": "minecraft:noise_threshold",
                       "max_threshold": 0.08,
                       "min_threshold": -0.08,
                       "noise": "haohan:lunar/obsidian_cracks"

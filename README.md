@@ -34,6 +34,6 @@ chmod +x package.sh   # chỉ cần chạy lần đầu
 
 Dự án được phát hành theo giấy phép [MIT](LICENSE).
 
-## Cảm ơn
+## Cảm ơn 
 
 (Bổ sung sau) 

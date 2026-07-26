@@ -2,19 +2,16 @@ $DirName = Split-Path -Leaf $PWD
 $OutputDir = "out"
 $ResourcePackDir = "resourcepack"
 
-# Tạo thư mục out nếu chưa có
 if (!(Test-Path $OutputDir)) {
     New-Item -ItemType Directory -Path $OutputDir | Out-Null
 }
 
 $OutputName = Join-Path $OutputDir "$DirName.zip"
 
-# Xóa file zip cũ nếu có
 if (Test-Path $OutputName) {
     Remove-Item $OutputName -Force
 }
 
-# Các thư mục và file cần nén
 $FilesToZip = @()
 if (Test-Path "data") { $FilesToZip += "data" }
 if (Test-Path "pack.mcmeta") { $FilesToZip += "pack.mcmeta" }
@@ -23,11 +20,11 @@ if (Test-Path "LICENSE") { $FilesToZip += "LICENSE" }
 if (Test-Path "README.md") { $FilesToZip += "README.md" }
 
 if ($FilesToZip.Count -eq 0) {
-    Write-Error "Lỗi: Không tìm thấy file datapack nào để nén!"
+    Write-Error "Error: No datapack files found to package!"
     exit 1
 }
 
-Write-Host "Đang nén datapack..."
+Write-Host "Packaging datapack..."
 Compress-Archive -Path $FilesToZip -DestinationPath $OutputName -Force
 
 if (Test-Path $ResourcePackDir) {
@@ -36,8 +33,10 @@ if (Test-Path $ResourcePackDir) {
         Remove-Item $ResourceOutputName -Force
     }
 
-    Write-Host "Dang nen resource pack..."
+    Write-Host "Packaging resource pack..."
     Compress-Archive -Path (Join-Path $ResourcePackDir "*") -DestinationPath $ResourceOutputName -Force
-    Write-Host "Nen resource pack thanh cong: $ResourceOutputName"
+    Write-Host "Resource pack packaged successfully: $ResourceOutputName"
 }
-Write-Host "Nén thành công: $OutputName"
+Write-Host "Successfully packaged: $OutputName"
+
+

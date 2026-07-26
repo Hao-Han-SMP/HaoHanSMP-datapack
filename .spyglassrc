@@ -3,6 +3,6 @@
         "gameVersion": "1.21.11"
     },
     "lint": {
-        "undeclaredSymbol": false
+        "undeclaredSymbol": []
     }
 }

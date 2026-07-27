@@ -1,8 +1,8 @@
 {
   "values": [
-    "haohan:lunar/physic",
-    "haohan:lunar/particle_effect",
-    "haohan:lunar/title",
-    "haohan:lunar/oxygen"
+    "haohan:lunar/physic/physic",
+    "haohan:lunar/effect/particle_effect",
+    "haohan:lunar/effect/title",
+    "haohan:lunar/environment/oxygen"
   ]
 }

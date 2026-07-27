@@ -16,10 +16,10 @@ execute as @a[tag=hh_lunar_oxygen,scores={hh_oxygen_dmg=20..}] at @s run damage 
 execute as @a[tag=hh_lunar_oxygen,scores={hh_oxygen_dmg=20..}] run scoreboard players set @s hh_oxygen_dmg 0
 
 # Display oxygen bar on actionbar every tick.
-execute as @a[tag=hh_lunar_oxygen] run function haohan:lunar/oxygen_display
+execute as @a[tag=hh_lunar_oxygen] run function haohan:lunar/environment/oxygen_display
 
 # Reset oxygen when player leaves the lunar dimension.
-execute as @a[tag=hh_lunar_oxygen] at @s unless dimension haohan:lunar run function haohan:lunar/reset_oxygen
+execute as @a[tag=hh_lunar_oxygen] at @s unless dimension haohan:lunar run function haohan:lunar/environment/reset_oxygen
 
 # Regenerate oxygen in rest base every 5 ticks.
 execute as @a[tag=hh_lunar_oxygen] at @s if predicate haohan:in_rest_base run scoreboard players add @s hh_oxygen_regen 1

@@ -23,8 +23,10 @@ execute as @a[tag=hh_lunar_oxygen] at @s unless dimension haohan:lunar run funct
 
 # Regenerate oxygen in rest base every 5 ticks.
 execute as @a[tag=hh_lunar_oxygen] at @s if predicate haohan:in_rest_base run scoreboard players add @s hh_oxygen_regen 1
+execute as @a[tag=hh_lunar_oxygen] at @s if predicate haohan:in_space_station run scoreboard players add @s hh_oxygen_regen 1
 execute as @a[tag=hh_lunar_oxygen] at @s if predicate haohan:in_rest_base run scoreboard players set @s hh_oxygen_dmg 0
+execute as @a[tag=hh_lunar_oxygen] at @s if predicate haohan:in_space_station run scoreboard players set @s hh_oxygen_dmg 0
 execute as @a[tag=hh_lunar_oxygen,scores={hh_oxygen_regen=5..}] run scoreboard players add @s hh_oxygen 15
 execute as @a[tag=hh_lunar_oxygen,scores={hh_oxygen_regen=5..}] run scoreboard players set @s hh_oxygen_regen 0
-execute as @a[tag=hh_lunar_oxygen,scores={hh_oxygen_regen=1..}] at @s unless predicate haohan:in_rest_base run scoreboard players set @s hh_oxygen_regen 0
+execute as @a[tag=hh_lunar_oxygen,scores={hh_oxygen_regen=1..}] at @s unless predicate haohan:in_rest_base unless predicate haohan:in_space_station run scoreboard players set @s hh_oxygen_regen 0
 execute as @a[tag=hh_lunar_oxygen,scores={hh_oxygen=601..}] run scoreboard players set @s hh_oxygen 600

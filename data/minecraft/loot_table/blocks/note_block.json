@@ -1,0 +1,107 @@
+{
+  "type": "minecraft:block",
+  "pools": [
+    {
+      "rolls": 1,
+      "entries": [
+        {
+          "type": "minecraft:alternatives",
+          "conditions": [
+            {
+              "condition": "minecraft:block_state_property",
+              "block": "minecraft:note_block",
+              "properties": {
+                "note": "24"
+              }
+            },
+            {
+              "condition": "minecraft:match_tool",
+              "predicate": {
+                "items": "minecraft:netherite_pickaxe"
+              }
+            }
+          ],
+          "children": [
+            {
+              "type": "minecraft:item",
+              "name": "minecraft:note_block",
+              "conditions": [
+                {
+                  "condition": "minecraft:match_tool",
+                  "predicate": {
+                    "predicates": {
+                      "minecraft:enchantments": [
+                        {
+                          "enchantments": "minecraft:silk_touch",
+                          "levels": {
+                            "min": 1
+                          }
+                        }
+                      ]
+                    }
+                  }
+                }
+              ],
+              "functions": [
+                {
+                  "function": "minecraft:set_components",
+                  "components": {
+                    "minecraft:item_model": "haohan:anorthosite_ore",
+                    "minecraft:block_state": {
+                      "instrument": "pling",
+                      "note": "24",
+                      "powered": "true"
+                    },
+                    "minecraft:item_name": "Anorthosite Ore",
+                    "minecraft:tooltip_display": {
+                      "hidden_components": [
+                        "minecraft:block_state"
+                      ]
+                    }
+                  }
+                }
+              ]
+            },
+            {
+              "type": "minecraft:item",
+              "name": "minecraft:raw_iron",
+              "functions": [
+                {
+                  "function": "minecraft:apply_bonus",
+                  "enchantment": "minecraft:fortune",
+                  "formula": "minecraft:ore_drops"
+                },
+                {
+                  "function": "minecraft:set_components",
+                  "components": {
+                    "minecraft:item_model": "haohan:raw_anorthosite",
+                    "minecraft:item_name": "Raw Anorthosite"
+                  }
+                },
+                {
+                  "function": "minecraft:explosion_decay"
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "type": "minecraft:item",
+          "name": "minecraft:note_block",
+          "conditions": [
+            {
+              "condition": "minecraft:inverted",
+              "term": {
+                "condition": "minecraft:block_state_property",
+                "block": "minecraft:note_block",
+                "properties": {
+                  "note": "24"
+                }
+              }
+            }
+          ]
+        }
+      ]
+    }
+  ]
+}

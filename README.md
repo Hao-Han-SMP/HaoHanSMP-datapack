@@ -5,6 +5,8 @@ Một datapack dành riêng cho server HaoHanSMP.
 ## Cách sử dụng
 
 > **Lưu ý:** Datapack này được thiết kế cho **Minecraft Java Edition** với pack format **94.1** (tức là phiên bản 1.21.11).
+> 
+> **Resource Pack:** Để hiển thị đầy đủ kết cấu (textures) và mô hình (models) của các vật phẩm/khối tùy chỉnh, bạn cần cài đặt thêm [Resource Pack](https://github.com/Hao-Han-SMP/HaoHanSMP-resourcepack/releases) tương ứng.
 
 1. Tải file `HaoHanSMP-datapack.zip` từ phần [Releases](../../releases) hoặc tự build theo [hướng dẫn ở dưới](#build--package).
 2. Mở Minecraft, vào màn hình **Create New World** (hoặc đặt file vào thư mục `datapacks/` của world đã có).

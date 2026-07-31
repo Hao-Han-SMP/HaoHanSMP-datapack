@@ -1,0 +1,33 @@
+{
+  "type": "minecraft:generic",
+  "pools": [
+    {
+      "rolls": 1,
+      "entries": [
+        {
+          "type": "minecraft:item",
+          "name": "minecraft:note_block",
+          "functions": [
+            {
+              "function": "minecraft:set_components",
+              "components": {
+                "minecraft:item_model": "haohan:anorthosite_ore",
+                "minecraft:block_state": {
+                  "instrument": "pling",
+                  "note": "24",
+                  "powered": "true"
+                },
+                "minecraft:item_name": "Anorthosite Ore",
+                "minecraft:tooltip_display": {
+                  "hidden_components": [
+                    "minecraft:block_state"
+                  ]
+                }
+              }
+            }
+          ]
+        }
+      ]
+    }
+  ]
+}

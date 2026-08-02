@@ -1,0 +1,35 @@
+{
+  "type": "minecraft:crafting_shaped",
+  "pattern": [
+    "PIS",
+    "ISA",
+    "SAE"
+  ],
+  "key": {
+    "P": "minecraft:prismarine_shard",
+    "I": "minecraft:iron_ingot",
+    "S": "#haohan:steel_ingot",
+    "A": "minecraft:amethyst_shard",
+    "E": "minecraft:echo_shard"
+  },
+  "result": {
+    "id": "minecraft:knowledge_book",
+    "count": 1,
+    "components": {
+      "minecraft:item_model": "haohan:aero_compound",
+      "minecraft:item_name": {
+        "text": "Aero Compound",
+        "color": "white",
+        "italic": false
+      },
+      "minecraft:max_stack_size": 1,
+      "minecraft:custom_data": {
+        "tag": "haohan:aero_compound",
+        "haohan:aero_compound": true,
+        "haohan": {
+          "aero_compound": true
+        }
+      }
+    }
+  }
+}

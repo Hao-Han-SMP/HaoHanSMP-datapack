@@ -1,5 +1,5 @@
 {
-  "parent": "haohan:lunar/root",
+  "parent": "haohan:lunar/enter_lunar",
   "display": {
     "icon": {
       "id": "minecraft:cyan_bed"

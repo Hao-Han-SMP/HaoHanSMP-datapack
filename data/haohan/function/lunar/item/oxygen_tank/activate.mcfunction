@@ -7,6 +7,14 @@ scoreboard players set @s hh_o2tank_new 0
 scoreboard players set @s hh_o2tank_tier_new 0
 scoreboard players set @s hh_o2tank_damage 0
 
+# 1. Player must be in dimension haohan:lunar
+execute at @s unless dimension haohan:lunar run title @s actionbar [{"text":"⚠ Bình oxy chỉ dùng tại Mặt Trăng!","color":"red"}]
+execute at @s unless dimension haohan:lunar run return 0
+
+# 2. Player must NOT be inside safe regen areas (rest_base or space_station)
+execute at @s if predicate haohan:in_rest_base run return 0
+execute at @s if predicate haohan:in_space_station run return 0
+
 # Retrieve the tank tier directly from the item's custom NBT (resolves NBT order and match issues!)
 execute store result score @s hh_o2tank_tier_new run data get entity @s SelectedItem.components."minecraft:custom_data".haohan.oxygen_tank_tier
 

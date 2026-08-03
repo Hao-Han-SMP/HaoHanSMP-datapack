@@ -18,5 +18,18 @@ scoreboard objectives add hh_o2_ss_regen dummy
 scoreboard objectives add hh_o2tank_new dummy
 scoreboard objectives add hh_o2tank_tier_new dummy
 scoreboard objectives add hh_o2tank_damage dummy
+scoreboard objectives add hh_o2tank_pct dummy
+scoreboard objectives add hh_o2tank_cur_pct dummy
+scoreboard objectives add hh_o2tank_charge dummy
+scoreboard objectives add hh_const dummy
+
+scoreboard players set #100 hh_const 100
+scoreboard players set #200 hh_const 200
+scoreboard players set #320 hh_const 320
+scoreboard players set #1000 hh_const 1000
+scoreboard players set #2000 hh_const 2000
+scoreboard players set #4000 hh_const 4000
+
+
 
 

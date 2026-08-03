@@ -40,9 +40,14 @@ execute as @a[tag=hh_lunar_oxygen] at @s if predicate haohan:in_space_station ru
 execute as @a[tag=hh_lunar_oxygen] at @s if predicate haohan:in_space_station run scoreboard players set @s hh_oxygen_dmg 0
 execute as @a[tag=hh_lunar_oxygen,scores={hh_o2_ss_regen=40..}] run function haohan:lunar/environment/regen_space_station
 
+# Charge held oxygen tank in safe structures
+execute as @a[tag=hh_lunar_oxygen] at @s if predicate haohan:in_rest_base run function haohan:lunar/environment/tank_charge
+execute as @a[tag=hh_lunar_oxygen] at @s if predicate haohan:in_space_station run function haohan:lunar/environment/tank_charge
+
 # Reset regen timers when leaving structures.
 execute as @a[tag=hh_lunar_oxygen,scores={hh_o2_rb_regen=1..}] at @s unless predicate haohan:in_rest_base run scoreboard players set @s hh_o2_rb_regen 0
 execute as @a[tag=hh_lunar_oxygen,scores={hh_o2_ss_regen=1..}] at @s unless predicate haohan:in_space_station run scoreboard players set @s hh_o2_ss_regen 0
+
 
 # Cap oxygen at max 600.
 execute as @a[tag=hh_lunar_oxygen,scores={hh_oxygen=601..}] run scoreboard players set @s hh_oxygen 600

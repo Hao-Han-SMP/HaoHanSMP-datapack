@@ -24,19 +24,19 @@ execute if score @s hh_o2tank_tier_new matches 0 run return 0
 # Read current damage of the item in mainhand
 execute store result score @s hh_o2tank_damage run data get entity @s SelectedItem.components."minecraft:damage"
 
-# Small tank calculation: capacity 1000
-execute if score @s hh_o2tank_tier_new matches 1 if score @s hh_o2tank_damage matches ..999 run scoreboard players set @s hh_o2tank_new 1000
-execute if score @s hh_o2tank_tier_new matches 1 if score @s hh_o2tank_damage matches ..999 run scoreboard players operation @s hh_o2tank_new -= @s hh_o2tank_damage
+# Small tank calculation: capacity 1000 (empty threshold: damage >= 850 / capacity <= 150)
+execute if score @s hh_o2tank_tier_new matches 1 if score @s hh_o2tank_damage matches ..849 run scoreboard players set @s hh_o2tank_new 1000
+execute if score @s hh_o2tank_tier_new matches 1 if score @s hh_o2tank_damage matches ..849 run scoreboard players operation @s hh_o2tank_new -= @s hh_o2tank_damage
 
-# Medium tank calculation: capacity 2000
-execute if score @s hh_o2tank_tier_new matches 2 if score @s hh_o2tank_damage matches ..1999 run scoreboard players set @s hh_o2tank_new 2000
-execute if score @s hh_o2tank_tier_new matches 2 if score @s hh_o2tank_damage matches ..1999 run scoreboard players operation @s hh_o2tank_new -= @s hh_o2tank_damage
+# Medium tank calculation: capacity 2000 (empty threshold: damage >= 1700 / capacity <= 300)
+execute if score @s hh_o2tank_tier_new matches 2 if score @s hh_o2tank_damage matches ..1699 run scoreboard players set @s hh_o2tank_new 2000
+execute if score @s hh_o2tank_tier_new matches 2 if score @s hh_o2tank_damage matches ..1699 run scoreboard players operation @s hh_o2tank_new -= @s hh_o2tank_damage
 
-# Large tank calculation: capacity 4000
-execute if score @s hh_o2tank_tier_new matches 3 if score @s hh_o2tank_damage matches ..3999 run scoreboard players set @s hh_o2tank_new 4000
-execute if score @s hh_o2tank_tier_new matches 3 if score @s hh_o2tank_damage matches ..3999 run scoreboard players operation @s hh_o2tank_new -= @s hh_o2tank_damage
+# Large tank calculation: capacity 4000 (empty threshold: damage >= 3400 / capacity <= 600)
+execute if score @s hh_o2tank_tier_new matches 3 if score @s hh_o2tank_damage matches ..3399 run scoreboard players set @s hh_o2tank_new 4000
+execute if score @s hh_o2tank_tier_new matches 3 if score @s hh_o2tank_damage matches ..3399 run scoreboard players operation @s hh_o2tank_new -= @s hh_o2tank_damage
 
-# If tank is already fully empty (damage >= capacity) or invalid, stop execution
+# If tank is already fully empty (remaining capacity <= 15%) or invalid, stop execution
 execute if score @s hh_o2tank_new matches ..0 run return 0
 
 # Set the mainhand item to empty state (fully damaged)

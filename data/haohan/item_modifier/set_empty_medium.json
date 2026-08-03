@@ -1,6 +1,6 @@
 {
   "function": "minecraft:set_components",
   "components": {
-    "minecraft:damage": 2000
+    "minecraft:damage": 1700
   }
 }

@@ -6,7 +6,7 @@
       "entries": [
         {
           "type": "minecraft:item",
-          "name": "minecraft:iron_chestplate",
+          "name": "minecraft:netherite_chestplate",
           "functions": [
             {
               "function": "minecraft:set_components",
@@ -16,7 +16,7 @@
                 "minecraft:equippable": {
                   "slot": "chest",
                   "asset_id": "haohan:spacesuit",
-                  "equip_sound": "minecraft:item.armor.equip_iron"
+                  "equip_sound": "minecraft:item.armor.equip_netherite"
                 }
               }
             }

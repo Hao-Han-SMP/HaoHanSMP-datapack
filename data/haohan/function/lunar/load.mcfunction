@@ -27,8 +27,11 @@ scoreboard players set #100 hh_const 100
 scoreboard players set #200 hh_const 200
 scoreboard players set #320 hh_const 320
 scoreboard players set #1000 hh_const 1000
+scoreboard players set #1500 hh_const 1500
 scoreboard players set #2000 hh_const 2000
+scoreboard players set #3000 hh_const 3000
 scoreboard players set #4000 hh_const 4000
+scoreboard players set #6800 hh_const 6800
 
 
 

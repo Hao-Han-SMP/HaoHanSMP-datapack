@@ -6,9 +6,9 @@
 # 1. Calculate oxygen tank remaining percentage for actionbar display
 scoreboard players operation @s hh_o2tank_pct = @s hh_o2tank
 scoreboard players operation @s hh_o2tank_pct *= #100 hh_const
-execute if score @s hh_o2tank_tier matches 1 run scoreboard players operation @s hh_o2tank_pct /= #1000 hh_const
-execute if score @s hh_o2tank_tier matches 2 run scoreboard players operation @s hh_o2tank_pct /= #2000 hh_const
-execute if score @s hh_o2tank_tier matches 3 run scoreboard players operation @s hh_o2tank_pct /= #4000 hh_const
+execute if score @s hh_o2tank_tier matches 1 run scoreboard players operation @s hh_o2tank_pct /= #1500 hh_const
+execute if score @s hh_o2tank_tier matches 2 run scoreboard players operation @s hh_o2tank_pct /= #3000 hh_const
+execute if score @s hh_o2tank_tier matches 3 run scoreboard players operation @s hh_o2tank_pct /= #6800 hh_const
 
 # 2. GREEN (51..100%)
 execute if score @s hh_o2tank_pct matches 51.. run execute if score @s hh_oxygen matches 541.. run title @s actionbar [{"text":"● ● ● ● ● ● ● ● ● ●","color":"blue"},{"text":"  🔋 ","color":"green"},{"score":{"name":"@s","objective":"hh_o2tank_pct"},"color":"green"},{"text":"%","color":"green"}]

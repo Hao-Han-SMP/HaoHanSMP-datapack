@@ -17,18 +17,18 @@
                   "italic": false
                 },
                 "minecraft:lore": [
-                  {"text": "Dung tích: 2000", "color": "gray", "italic": false},
+                  {"text": "Dung tích: 3000", "color": "gray", "italic": false},
                   {"text": "Chuột phải để kích hoạt", "color": "dark_gray", "italic": false}
                 ],
                 "minecraft:max_stack_size": 1,
-                "minecraft:max_damage": 2000,
+                "minecraft:max_damage": 3000,
                 "minecraft:damage": 0,
                 "minecraft:enchantment_glint_override": false,
                 "minecraft:custom_data": {
                   "haohan": {
                     "oxygen_tank": true,
                     "oxygen_tank_tier": 2,
-                    "oxygen_tank_capacity": 2000
+                    "oxygen_tank_capacity": 3000
                   }
                 }
               }

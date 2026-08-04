@@ -22,15 +22,15 @@ scoreboard players add @s hh_o2tank_charge 1
 # ── 1. Calculate current percentage based on initial item damage ──
 # start_capacity = max_capacity - initial_damage
 scoreboard players set @s hh_o2tank_cur_pct 0
-execute if score @s hh_o2tank_tier_new matches 1 run scoreboard players set @s hh_o2tank_cur_pct 1000
-execute if score @s hh_o2tank_tier_new matches 2 run scoreboard players set @s hh_o2tank_cur_pct 2000
-execute if score @s hh_o2tank_tier_new matches 3 run scoreboard players set @s hh_o2tank_cur_pct 4000
+execute if score @s hh_o2tank_tier_new matches 1 run scoreboard players set @s hh_o2tank_cur_pct 1500
+execute if score @s hh_o2tank_tier_new matches 2 run scoreboard players set @s hh_o2tank_cur_pct 3000
+execute if score @s hh_o2tank_tier_new matches 3 run scoreboard players set @s hh_o2tank_cur_pct 6800
 scoreboard players operation @s hh_o2tank_cur_pct -= @s hh_o2tank_damage
 # Convert to base percentage: (start_capacity * 100) / max_capacity
 scoreboard players operation @s hh_o2tank_cur_pct *= #100 hh_const
-execute if score @s hh_o2tank_tier_new matches 1 run scoreboard players operation @s hh_o2tank_cur_pct /= #1000 hh_const
-execute if score @s hh_o2tank_tier_new matches 2 run scoreboard players operation @s hh_o2tank_cur_pct /= #2000 hh_const
-execute if score @s hh_o2tank_tier_new matches 3 run scoreboard players operation @s hh_o2tank_cur_pct /= #4000 hh_const
+execute if score @s hh_o2tank_tier_new matches 1 run scoreboard players operation @s hh_o2tank_cur_pct /= #1500 hh_const
+execute if score @s hh_o2tank_tier_new matches 2 run scoreboard players operation @s hh_o2tank_cur_pct /= #3000 hh_const
+execute if score @s hh_o2tank_tier_new matches 3 run scoreboard players operation @s hh_o2tank_cur_pct /= #6800 hh_const
 
 # ── 2. Add added charge percentage (charge_ticks / max_ticks * remaining_pct) ──
 # Calculate progress % (charge_ticks * 100 / max_ticks)

@@ -53,9 +53,9 @@ execute as @a[tag=hh_lunar_oxygen,scores={hh_o2_ss_regen=1..}] at @s unless pred
 execute as @a[tag=hh_lunar_oxygen,scores={hh_oxygen=601..}] run scoreboard players set @s hh_oxygen 600
 
 # Cap tank oxygen at tier capacity.
-execute as @a[tag=hh_lunar_oxygen,scores={hh_o2tank_tier=1,hh_o2tank=1001..}] run scoreboard players set @s hh_o2tank 1000
-execute as @a[tag=hh_lunar_oxygen,scores={hh_o2tank_tier=2,hh_o2tank=2001..}] run scoreboard players set @s hh_o2tank 2000
-execute as @a[tag=hh_lunar_oxygen,scores={hh_o2tank_tier=3,hh_o2tank=4001..}] run scoreboard players set @s hh_o2tank 4000
+execute as @a[tag=hh_lunar_oxygen,scores={hh_o2tank_tier=1,hh_o2tank=1501..}] run scoreboard players set @s hh_o2tank 1500
+execute as @a[tag=hh_lunar_oxygen,scores={hh_o2tank_tier=2,hh_o2tank=3001..}] run scoreboard players set @s hh_o2tank 3000
+execute as @a[tag=hh_lunar_oxygen,scores={hh_o2tank_tier=3,hh_o2tank=6801..}] run scoreboard players set @s hh_o2tank 6800
 
 # Run oxygen tank right-click check for all players (to allow non-lunar warning).
 execute as @a[scores={hh_o2tank_use=1..}] run function haohan:lunar/item/oxygen_tank/activate

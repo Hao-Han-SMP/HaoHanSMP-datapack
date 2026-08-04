@@ -11,7 +11,13 @@ scoreboard players set @s hh_o2tank_damage 0
 execute at @s unless dimension haohan:lunar run title @s actionbar [{"text":"⚠ Bình oxy chỉ dùng tại Mặt Trăng!","color":"red"}]
 execute at @s unless dimension haohan:lunar run return 0
 
-# 2. Player must NOT be inside safe regen areas (rest_base or space_station)
+# 2. Player must be wearing full spacesuit
+execute at @s unless predicate haohan:wears_spacesuit run title @s subtitle [{"text":"Không thể dùng bình oxy","color":"red"}]
+execute at @s unless predicate haohan:wears_spacesuit run title @s title {"text":"⚠"}
+execute at @s unless predicate haohan:wears_spacesuit run tellraw @s [{"text":"[HaoHan] ","color":"gold","bold":true},{"text":"Bạn cần mặc đầy đủ bộ đồ Spacesuit mới có thể sử dụng bình oxy!","color":"red"}]
+execute at @s unless predicate haohan:wears_spacesuit run return 0
+
+# 3. Player must NOT be inside safe regen areas (rest_base or space_station)
 execute at @s if predicate haohan:in_rest_base run return 0
 execute at @s if predicate haohan:in_space_station run return 0
 

@@ -1,13 +1,13 @@
 {
   "placement": {
     "type": "minecraft:random_spread",
-    "salt": 38947120,
-    "separation": 50,
-    "spacing": 160
+    "salt": 48291053,
+    "separation": 40,
+    "spacing": 120
   },
   "structures": [
     {
-      "structure": "haohan:space_station",
+      "structure": "haohan:delta_abandoned_base",
       "weight": 1
     }
   ]

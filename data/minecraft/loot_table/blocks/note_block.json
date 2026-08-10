@@ -11,6 +11,7 @@
               "condition": "minecraft:block_state_property",
               "block": "minecraft:note_block",
               "properties": {
+                "instrument": "pling",
                 "note": "24"
               }
             },
@@ -47,16 +48,26 @@
                   "function": "minecraft:set_components",
                   "components": {
                     "minecraft:item_model": "haohan:anorthosite_ore",
+                    "minecraft:custom_name": "{\"text\":\"Anorthosite Ore\",\"italic\":false}",
+                    "minecraft:custom_model_data": {
+                      "floats": [
+                        5001.0
+                      ]
+                    },
+                    "minecraft:tooltip_display": {
+                      "hidden_components": [
+                        "minecraft:block_state"
+                      ]
+                    },
                     "minecraft:block_state": {
                       "instrument": "pling",
                       "note": "24",
                       "powered": "true"
                     },
-                    "minecraft:item_name": "Anorthosite Ore",
-                    "minecraft:tooltip_display": {
-                      "hidden_components": [
-                        "minecraft:block_state"
-                      ]
+                    "minecraft:custom_data": {
+                      "PublicBukkitValues": {
+                        "haohanitemmanager:item_id": "haohan:anorthosite_ore"
+                      }
                     }
                   }
                 }
@@ -64,7 +75,7 @@
             },
             {
               "type": "minecraft:item",
-              "name": "minecraft:raw_iron",
+              "name": "minecraft:knowledge_book",
               "functions": [
                 {
                   "function": "minecraft:apply_bonus",
@@ -75,7 +86,17 @@
                   "function": "minecraft:set_components",
                   "components": {
                     "minecraft:item_model": "haohan:raw_anorthosite",
-                    "minecraft:item_name": "Raw Anorthosite"
+                    "minecraft:custom_name": "{\"text\":\"Raw Anorthosite\",\"italic\":false}",
+                    "minecraft:custom_model_data": {
+                      "floats": [
+                        3003.0
+                      ]
+                    },
+                    "minecraft:custom_data": {
+                      "PublicBukkitValues": {
+                        "haohanitemmanager:item_id": "haohan:raw_anorthosite"
+                      }
+                    }
                   }
                 },
                 {
@@ -95,6 +116,7 @@
                 "condition": "minecraft:block_state_property",
                 "block": "minecraft:note_block",
                 "properties": {
+                  "instrument": "pling",
                   "note": "24"
                 }
               }

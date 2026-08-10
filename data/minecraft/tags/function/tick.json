@@ -1,9 +1,0 @@
-{
-  "values": [
-    "haohan:lunar/physic/physic",
-    "haohan:lunar/effect/particle_effect",
-    "haohan:lunar/effect/title",
-    "haohan:lunar/environment/oxygen",
-    "haohan:lunar/block/anorthosite_ore/mining_tick"
-  ]
-}

@@ -1,1 +1,0 @@
-loot give @s loot haohan:blocks/anorthosite_ore

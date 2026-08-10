@@ -1,0 +1,49 @@
+{
+  "elements": [
+    {
+      "element": {
+        "element_type": "minecraft:single_pool_element",
+        "location": "haohan:delta_abandoned_base/path/path_straight",
+        "processors": {
+          "processors": []
+        },
+        "projection": "terrain_matching"
+      },
+      "weight": 8
+    },
+    {
+      "element": {
+        "element_type": "minecraft:single_pool_element",
+        "location": "haohan:delta_abandoned_base/path/path_to_main_structure",
+        "processors": {
+          "processors": []
+        },
+        "projection": "terrain_matching"
+      },
+      "weight": 6
+    },
+    {
+      "element": {
+        "element_type": "minecraft:single_pool_element",
+        "location": "haohan:delta_abandoned_base/path/path_y",
+        "processors": {
+          "processors": []
+        },
+        "projection": "terrain_matching"
+      },
+      "weight": 3
+    },
+    {
+      "element": {
+        "element_type": "minecraft:single_pool_element",
+        "location": "haohan:delta_abandoned_base/path/path_x",
+        "processors": {
+          "processors": []
+        },
+        "projection": "terrain_matching"
+      },
+      "weight": 2
+    }
+  ],
+  "fallback": "minecraft:empty"
+}

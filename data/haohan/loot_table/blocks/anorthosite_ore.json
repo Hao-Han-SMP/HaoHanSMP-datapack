@@ -23,12 +23,29 @@
                 },
                 "minecraft:tooltip_display": {
                   "hidden_components": [
-                    "minecraft:block_state"
+                    "minecraft:jukebox_playable",
+                    "minecraft:painting/variant",
+                    "minecraft:pot_decorations",
+                    "minecraft:written_book_content",
+                    "minecraft:block_entity_data",
+                    "minecraft:firework_explosion",
+                    "minecraft:bundle_contents",
+                    "minecraft:potion_contents",
+                    "minecraft:banner_patterns",
+                    "minecraft:container_loot",
+                    "minecraft:tropical_fish/pattern",
+                    "minecraft:container",
+                    "minecraft:instrument",
+                    "minecraft:charged_projectiles",
+                    "minecraft:block_state",
+                    "minecraft:bees",
+                    "minecraft:fireworks",
+                    "minecraft:map_id"
                   ]
                 },
                 "minecraft:custom_data": {
                   "PublicBukkitValues": {
-                    "haohanitemmanager:item_id": "haohan:anorthosite_ore"
+                    "haohanitemcore:item_id": "haohan:anorthosite_ore"
                   }
                 }
               }

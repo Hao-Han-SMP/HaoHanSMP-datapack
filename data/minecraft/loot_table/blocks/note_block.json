@@ -48,7 +48,7 @@
                   "function": "minecraft:set_components",
                   "components": {
                     "minecraft:item_model": "haohan:anorthosite_ore",
-                    "minecraft:custom_name": "{\"text\":\"Anorthosite Ore\",\"italic\":false}",
+                    "minecraft:custom_name": "Anorthosite Ore",
                     "minecraft:custom_model_data": {
                       "floats": [
                         5001.0
@@ -56,7 +56,24 @@
                     },
                     "minecraft:tooltip_display": {
                       "hidden_components": [
-                        "minecraft:block_state"
+                        "minecraft:jukebox_playable",
+                        "minecraft:painting/variant",
+                        "minecraft:pot_decorations",
+                        "minecraft:written_book_content",
+                        "minecraft:block_entity_data",
+                        "minecraft:firework_explosion",
+                        "minecraft:bundle_contents",
+                        "minecraft:potion_contents",
+                        "minecraft:banner_patterns",
+                        "minecraft:container_loot",
+                        "minecraft:tropical_fish/pattern",
+                        "minecraft:container",
+                        "minecraft:instrument",
+                        "minecraft:charged_projectiles",
+                        "minecraft:block_state",
+                        "minecraft:bees",
+                        "minecraft:fireworks",
+                        "minecraft:map_id"
                       ]
                     },
                     "minecraft:block_state": {
@@ -66,7 +83,7 @@
                     },
                     "minecraft:custom_data": {
                       "PublicBukkitValues": {
-                        "haohanitemmanager:item_id": "haohan:anorthosite_ore"
+                        "haohanitemcore:item_id": "haohan:anorthosite_ore"
                       }
                     }
                   }
@@ -86,7 +103,7 @@
                   "function": "minecraft:set_components",
                   "components": {
                     "minecraft:item_model": "haohan:raw_anorthosite",
-                    "minecraft:custom_name": "{\"text\":\"Raw Anorthosite\",\"italic\":false}",
+                    "minecraft:custom_name": "Raw Anorthosite",
                     "minecraft:custom_model_data": {
                       "floats": [
                         3003.0
@@ -94,7 +111,7 @@
                     },
                     "minecraft:custom_data": {
                       "PublicBukkitValues": {
-                        "haohanitemmanager:item_id": "haohan:raw_anorthosite"
+                        "haohanitemcore:item_id": "haohan:raw_anorthosite"
                       }
                     }
                   }

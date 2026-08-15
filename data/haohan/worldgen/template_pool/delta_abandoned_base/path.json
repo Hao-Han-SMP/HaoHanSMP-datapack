@@ -20,7 +20,7 @@
         },
         "projection": "terrain_matching"
       },
-      "weight": 6
+      "weight": 16
     },
     {
       "element": {

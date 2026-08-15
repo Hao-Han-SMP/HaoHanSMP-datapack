@@ -9,7 +9,7 @@
         },
         "projection": "rigid"
       },
-      "weight": 5
+      "weight": 1
     },
     {
       "element": {
@@ -21,6 +21,17 @@
         "projection": "rigid"
       },
       "weight": 5
+    },
+    {
+      "element": {
+        "element_type": "minecraft:single_pool_element",
+        "location": "haohan:delta_abandoned_base/structure/factory",
+        "processors": {
+          "processors": []
+        },
+        "projection": "rigid"
+      },
+      "weight": 3
     }
   ],
   "fallback": "minecraft:empty"

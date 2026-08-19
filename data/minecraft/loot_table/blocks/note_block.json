@@ -92,7 +92,7 @@
             },
             {
               "type": "minecraft:item",
-              "name": "minecraft:knowledge_book",
+              "name": "minecraft:paper",
               "functions": [
                 {
                   "function": "minecraft:apply_bonus",

@@ -91,8 +91,8 @@ Cho phép người chơi di chuyển tự do bên ngoài vùng an toàn mà khô
 
 ### 3. Nguyên liệu đặc thù Mặt Trăng
 Nguyên liệu dùng trong chế tạo các máy móc hoặc giáp phi hành gia.
-*   **Aero Compound:** [aero_compound.json](file:///home/paithon/Projects/HaoHanSMP/HaoHanSMP-datapack/data/haohan/loot_table/items/aero_compound.json) - Tạo trên nền `minecraft:knowledge_book` với model `haohan:aero_compound`.
-*   **Steel Ingot (Phôi Thép):** [steel_ingot.json](file:///home/paithon/Projects/HaoHanSMP/HaoHanSMP-datapack/data/haohan/loot_table/items/steel_ingot.json) - Tạo trên nền `minecraft:knowledge_book` với model `haohan:steel_ingot`.
+*   **Aero Compound:** [aero_compound.json](file:///home/paithon/Projects/HaoHanSMP/HaoHanSMP-datapack/data/haohan/loot_table/items/aero_compound.json) - Tạo trên nền `minecraft:paper` với model `haohan:aero_compound`.
+*   **Steel Ingot (Phôi Thép):** [steel_ingot.json](file:///home/paithon/Projects/HaoHanSMP/HaoHanSMP-datapack/data/haohan/loot_table/items/steel_ingot.json) - Tạo trên nền `minecraft:paper` với model `haohan:steel_ingot`.
 
 ### 4. Đĩa nhạc custom HaoHanSMP
 *   **Vật phẩm:** [i_really_want_to_stay_at_your_house.json (Loot Table)](file:///home/paithon/Projects/HaoHanSMP/HaoHanSMP-datapack/data/haohan/loot_table/music_disc/i_really_want_to_stay_at_your_house.json)

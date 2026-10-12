@@ -2,6 +2,9 @@
 
 Một datapack dành riêng cho server HaoHanSMP.
 
+# Lưu ý:
+Kho lưu trữ này đã được tích hợp với [HaoHanLunar](https://github.com/Hao-Han-SMP/HaoHanLunar)
+
 ## Cách sử dụng
 
 > **Lưu ý:** Datapack này được thiết kế cho **Minecraft Java Edition** với pack format **94.1** (tức là phiên bản 1.21.11).

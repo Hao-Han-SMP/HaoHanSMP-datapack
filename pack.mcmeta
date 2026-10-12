@@ -1,14 +1,7 @@
 {
-    "pack": {
-        "min_format": 94.1,
-        "max_format": 94.1,
-        "description": [
-            {
-                "text": "Remastered by HaoHanSMP"
-            },
-            {
-                "text": "Original: William Wythers"
-            }
-        ]
-    }
+  "pack": {
+    "description": "Remastered by HaoHanSMP - Original: William Wythers",
+    "min_format": [94, 1],
+    "max_format": [94, 1]
+  }
 }

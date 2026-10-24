@@ -9,7 +9,6 @@ Hệ thống Datapack và Plugin nạp chiều không gian Mặt Trăng (`haohan
 Từ phiên bản này, hệ thống hỗ trợ chạy hoàn toàn dưới dạng **Purpur/Paper Plugin (`.jar`)**:
 * **Không cần copy thủ công vào `world/datapacks/`**: Plugin tự động đăng ký bundled datapack thông qua Paper Lifecycle Event (`DATAPACK_DISCOVERY`).
 * **Tự động load Dimension**: Tự động gọi `WorldCreator` nạp chiều không gian `haohan:lunar` ngay khi server khởi động.
-* **Lệnh kiểm tra trực tiếp**: `/haohandatapack` (hoặc `/hhd`) để xem trạng thái nạp thế giới Mặt Trăng và datapack.
 
 ---
 

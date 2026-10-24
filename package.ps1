@@ -19,13 +19,11 @@ if (Test-Path "pack.png") { $FilesToZip += "pack.png" }
 if (Test-Path "LICENSE") { $FilesToZip += "LICENSE" }
 if (Test-Path "README.md") { $FilesToZip += "README.md" }
 
-if ($FilesToZip.Count -eq 0) {
-    Write-Error "Error: No datapack files found to package!"
-    exit 1
+if ($FilesToZip.Count -gt 0) {
+    Write-Host "Packaging datapack zip..."
+    Compress-Archive -Path $FilesToZip -DestinationPath $OutputName -Force
+    Write-Host "Successfully packaged datapack zip: $OutputName"
 }
-
-Write-Host "Packaging datapack..."
-Compress-Archive -Path $FilesToZip -DestinationPath $OutputName -Force
 
 if (Test-Path $ResourcePackDir) {
     $ResourceOutputName = Join-Path $OutputDir "$DirName-resources.zip"
@@ -37,6 +35,14 @@ if (Test-Path $ResourcePackDir) {
     Compress-Archive -Path (Join-Path $ResourcePackDir "*") -DestinationPath $ResourceOutputName -Force
     Write-Host "Resource pack packaged successfully: $ResourceOutputName"
 }
-Write-Host "Successfully packaged: $OutputName"
 
-
+# Build Paper/Purpur Plugin Jar
+if (Test-Path "build.gradle") {
+    Write-Host "Building Purpur/Paper plugin jar..."
+    .\gradlew.bat jar
+    $JarSource = "build\libs\HaoHanSMP-datapack-1.0.0.jar"
+    if (Test-Path $JarSource) {
+        Copy-Item $JarSource (Join-Path $OutputDir "HaoHanSMP-datapack-1.0.0.jar") -Force
+        Write-Host "Plugin jar packaged successfully: $(Join-Path $OutputDir "HaoHanSMP-datapack-1.0.0.jar")"
+    }
+}

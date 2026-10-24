@@ -3,3 +3,5 @@ tools/
 backups/
 
 .idea/
+.gradle/
+build/

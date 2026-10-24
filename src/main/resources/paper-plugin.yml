@@ -1,0 +1,8 @@
+name: HaoHanSMP-Datapack
+version: '1.0.0'
+main: vn.haohan.datapack.HaoHanDatapackPlugin
+bootstrapper: vn.haohan.datapack.bootstrap.HaoHanDatapackBootstrap
+api-version: '1.21'
+description: HaoHanSMP Datapack & Dimension Loader Plugin for Purpur 1.21.11
+authors:
+  - HaoHanSMP

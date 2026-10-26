@@ -46,13 +46,6 @@ processResources {
     filesMatching('paper-plugin.yml') {
         expand props
     }
-
-    from('data') {
-        into 'datapack/data'
-    }
-    from('pack.mcmeta') {
-        into 'datapack'
-    }
 }
 
 test {

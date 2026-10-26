@@ -1,48 +1,17 @@
-$DirName = Split-Path -Leaf $PWD
 $OutputDir = "out"
-$ResourcePackDir = "resourcepack"
 
 if (!(Test-Path $OutputDir)) {
     New-Item -ItemType Directory -Path $OutputDir | Out-Null
 }
 
-$OutputName = Join-Path $OutputDir "$DirName.zip"
-
-if (Test-Path $OutputName) {
-    Remove-Item $OutputName -Force
-}
-
-$FilesToZip = @()
-if (Test-Path "data") { $FilesToZip += "data" }
-if (Test-Path "pack.mcmeta") { $FilesToZip += "pack.mcmeta" }
-if (Test-Path "pack.png") { $FilesToZip += "pack.png" }
-if (Test-Path "LICENSE") { $FilesToZip += "LICENSE" }
-if (Test-Path "README.md") { $FilesToZip += "README.md" }
-
-if ($FilesToZip.Count -gt 0) {
-    Write-Host "Packaging datapack zip..."
-    Compress-Archive -Path $FilesToZip -DestinationPath $OutputName -Force
-    Write-Host "Successfully packaged datapack zip: $OutputName"
-}
-
-if (Test-Path $ResourcePackDir) {
-    $ResourceOutputName = Join-Path $OutputDir "$DirName-resources.zip"
-    if (Test-Path $ResourceOutputName) {
-        Remove-Item $ResourceOutputName -Force
-    }
-
-    Write-Host "Packaging resource pack..."
-    Compress-Archive -Path (Join-Path $ResourcePackDir "*") -DestinationPath $ResourceOutputName -Force
-    Write-Host "Resource pack packaged successfully: $ResourceOutputName"
-}
-
 # Build Paper/Purpur Plugin Jar
 if (Test-Path "build.gradle") {
-    Write-Host "Building Purpur/Paper plugin jar..."
+    Write-Host "Building HaoHan-WorldGen Paper/Purpur plugin jar..."
     .\gradlew.bat jar
-    $JarSource = "build\libs\HaoHanSMP-datapack-1.0.0.jar"
+    $JarSource = "build\libs\HaoHan-WorldGen-1.0.0.jar"
     if (Test-Path $JarSource) {
-        Copy-Item $JarSource (Join-Path $OutputDir "HaoHanSMP-datapack-1.0.0.jar") -Force
-        Write-Host "Plugin jar packaged successfully: $(Join-Path $OutputDir "HaoHanSMP-datapack-1.0.0.jar")"
+        $JarDest = Join-Path $OutputDir "HaoHan-WorldGen-1.0.0.jar"
+        Copy-Item $JarSource $JarDest -Force
+        Write-Host "Plugin jar packaged successfully: $JarDest"
     }
 }

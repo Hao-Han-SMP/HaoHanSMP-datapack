@@ -1,8 +1,14 @@
-name: HaoHanSMP-Datapack
+name: HaoHan-WorldGen
 version: '1.0.0'
-main: vn.haohan.datapack.HaoHanDatapackPlugin
-bootstrapper: vn.haohan.datapack.bootstrap.HaoHanDatapackBootstrap
+main: vn.haohan.worldgen.HaoHanWorldGenPlugin
+bootstrapper: vn.haohan.worldgen.bootstrap.HaoHanWorldGenBootstrap
 api-version: '1.21'
-description: HaoHanSMP Datapack & Dimension Loader Plugin for Purpur 1.21.11
+description: HaoHanSMP Lunar World Generation Plugin for Paper/Purpur 1.21.11
+provides:
+  - HaoHanSMP-Datapack
 authors:
   - HaoHanSMP
+permissions:
+  haohan.admin:
+    description: Quản trị viên hệ thống HaoHan Mặt Trăng
+    default: op
